@@ -14,9 +14,9 @@ __DATA__
 
 @@ index.html.ep
 % layout 'default';
-% title 'Welcome';
-<h1>Welcome to the Mojolicious real-time web framework!</h1>
-To learn more, you can browse through the documentation
+% title 'Scheduler';
+<h1>Scheduler</h1>
+これはSchedulerアプリです。
 <%= link_to 'here' => '/perldoc' %>.
 
 @@ layouts/default.html.ep
