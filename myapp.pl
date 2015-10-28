@@ -1,7 +1,5 @@
 #!/usr/bin/env perl
 use Mojolicious::Lite;
-use Mojo::Message::Request;
-
 
 # Documentation browser under "/perldoc"
 # plugin 'PODRenderer';
