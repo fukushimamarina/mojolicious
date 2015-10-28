@@ -2,7 +2,7 @@
 use Mojolicious::Lite;
 
 # Documentation browser under "/perldoc"
-plugin 'PODRenderer';
+# plugin 'PODRenderer';
 
 get '/' => sub {
   my $c = shift;
@@ -14,10 +14,11 @@ __DATA__
 
 @@ index.html.ep
 % layout 'default';
-% title 'Scheduler';
-<h1>Scheduler</h1>
-これはSchedulerアプリです。
+% title 'エンジニア飲み会リスト';
+<h1>飲み会リスト</h1>
+飲み会のリストをつくります！
 <%= link_to 'here' => '/perldoc' %>.
+
 
 @@ layouts/default.html.ep
 <!DOCTYPE html>
