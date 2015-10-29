@@ -6,23 +6,21 @@ use Mojolicious::Lite;
 
 get '/' => sub {
 	my $c = shift;
-	$c->render(template => 'index');
+
+	my $name		= $c->param('name');
+	my $category	= $c->param('category');
+	$c->render('index',
+		name		=> $name,
+		category	=> $category
+	);
 };
 
 post '/post' => sub {
 	my $c = shift;
 
-	my $name		= $c->param('name');
-	my $category	= $c->param('category');
-
-	$c->redirect_to('/list');
+	$c->redirect_to('/');
 };
 
-get '/list' => sub {
-	my $c = shift;
-
-	$c->render(templete => 'list');
-};
 
 app->start;
 __DATA__
@@ -45,19 +43,26 @@ __DATA__
     </div>
     <button type="submit" class="btn btn-default">教える</button>
 </form>
-
-@@ list.html.ep
-% layout 'default';
-% title 'エンジニア飲み会リスト';
-<h1>飲み会リスト一覧</h1>
 <hr>
-
+<h2>飲み会リスト一覧</h2>
+一覧になってます。<br>
+<table border="1">
+	<tr><th>店名</th><th>カテゴリ</th></tr>
+	<tr><td>マルミチェ</td><td>イタリアン</td></tr>	
+	<tr><td><%= $name %></td><td><%= $category %></td></tr>
+</table>
 
 
 
 @@ layouts/default.html.ep
 <!DOCTYPE html>
+<%
+  my $name = stash('name');
+  my $category = stash('category');
+%>
 <html>
-  <head><title><%= title %></title></head>
-  <body><%= content %></body>
+	<head>
+		<title><%= title %></title>
+	</head>
+	<body><%= content %></body>
 </html>
