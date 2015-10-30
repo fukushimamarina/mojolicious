@@ -40,7 +40,7 @@ post '/post' => sub {
 	$c->stash('category' => $category);
 	$c->stash('place' => $place);
 
-	$c->render('list');
+	$c->render('index');
 };
 
 app->start;
@@ -67,11 +67,7 @@ __DATA__
 <br>
 	%= submit_button '追加する！'
 % end
-
-@@ list.html.ep
-% layout 'default';
-% title 'リスト一覧';
-
+<hr>
 <h1>飲み会リスト一覧</h1>
 <p>一覧になってます。</p>
 
