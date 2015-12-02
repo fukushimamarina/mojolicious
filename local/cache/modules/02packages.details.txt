@@ -5,7 +5,7 @@ Columns:      package name, version, path
 Intended-For: Automated fetch routines, namespace documentation.
 Written-By:   Carton v1.0.22
 Line-Count:   106
-Last-Updated: Fri Oct 30 20:30:14 2015
+Last-Updated: Fri Oct 30 22:49:08 2015
 
 Mojo                              undef  S/SR/SRI/Mojolicious-6.25.tar.gz
 Mojo::Asset                       undef  S/SR/SRI/Mojolicious-6.25.tar.gz

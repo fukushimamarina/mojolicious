@@ -10,6 +10,7 @@ plugin 'TagHelpers';
 #  dsn => 'dbi:mysql:database=mojo',
 #  user => 'root'
 #);
+#my $dbi;
 
 get '/' => sub {
 	my $c = shift;
@@ -18,27 +19,26 @@ get '/' => sub {
 };
 
 post '/post' => sub {
-	my $c = shift;
+	my $c	= shift;
 
 	my $dbi = DBIx::Custom->connect(
-		dsn => 'dbi:mysql:database=mojo',
-		user => 'root'
+		dsn		=> 'dbi:mysql:database=mojo',
+		user	=> 'root'
 	);
 
-	my $name = $c->param('name');
-	my $category = $c->param('category');
-	my $place = $c->param('place');
+	my $name		= $c->param('name');
+	my $category	= $c->param('category');
+	my $place		= $c->param('place');
 
 	$dbi->insert({
-		name => [$name], 
-		category => [$category], 
-		place => [$place]
-		},table => 'shop'); 
+		name		=> $name, 
+		category	=> $category, 
+		place		=> $place
+		},table		=> 'shop'); 
 
-
-	$c->stash('name' => $name);
-	$c->stash('category' => $category);
-	$c->stash('place' => $place);
+	$c->stash('name'		=> $name);
+	$c->stash('category'	=> $category);
+	$c->stash('place'		=> $place);
 
 	$c->render('index');
 };
@@ -51,7 +51,7 @@ __DATA__
 % title 'エンジニア飲み会リスト';
 
 <h1>みんなでつくる！飲み会リスト</h1>
-<p>飲み会のリストをつくります！</p>
+<p>飲み会のリストを作っておきたいなと思います！</p>
 <p>元データは<%= link_to 'こちら' => 'https://docs.google.com/spreadsheets/d/1pAXG5zc96CAC2aUpw76-A0hayWs6cxVjpz9ZruKUBI0/edit#gid=0' %>をご参照ください！</p>
 
 
@@ -66,7 +66,7 @@ __DATA__
 	%= input_tag 'place', type => 'text', placeholder => '五反田'
 <br>
 	%= submit_button '追加する！'
-% end
+%= end
 <hr>
 <h1>飲み会リスト一覧</h1>
 <p>一覧になってます。</p>
@@ -89,6 +89,7 @@ __DATA__
 	</tbody>	
 </table>
 <div>
+
 
 
 @@ layouts/default.html.ep
