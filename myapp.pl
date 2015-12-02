@@ -14,7 +14,6 @@ plugin 'TagHelpers';
 
 get '/' => sub {
 	my $c = shift;
-
 	$c->render('index');
 };
 
